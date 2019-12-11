@@ -10,18 +10,19 @@ const PhotoList = (props) => {
     url={`https://farm${result.farm}.staticflickr.com/${result.server}/${result.id}_${result.secret}.jpg`}
     />
   );
-  console.log(photos)
   return(
     <div className="photo-container">
       <h2>Results</h2>
         <ul>
           { photos }
         </ul>
+        
         {/* <!-- Not Found --> */}
           {/* <li className="not-found">
             <h3>No Results Found</h3>
             <p>You search did not return any results. Please try again.</p>
           </li> */}
+
     </div>
     );
   }

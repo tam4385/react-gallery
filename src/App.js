@@ -22,17 +22,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // axios.get('https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=e4df41c24a840c724e3b3bbf74d673d2&tags=sunsets&per_page=24&format=json&nojsoncallback=1')
-    // .then(response => {
-    //   this.setState({ photos: response.data.photos.photo })
-    // })
-    // .catch(error => {
-    //   console.log('Error catching and parsing data', error)
-    // });
+    this.performSearch('sunset');
   };
 
   performSearch = (query) => {
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=e4df41c24a840c724e3b3bbf74d673d2&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then(response => {
       this.setState({ photos: response.data.photos.photo })
     })
@@ -46,9 +40,13 @@ class App extends Component {
       <BrowserRouter>
        <div className="container">
          <Search onSearch={ this.performSearch } />
-         <Nav />
+         <Nav  onSearch={this.performSearch} />
          <PhotoList data={this.state.photos} />
         </div>
+
+        {/* <Route path="/sunsets" render={ () => this.performSearch('sunsets') } />
+        <Route path="/galaxies" render={ () => this.performSearch('galaxies') } />
+        <Route path="/dogs" render={ () => this.performSearch('dogs') } /> */}
       </BrowserRouter>
     );
   }
