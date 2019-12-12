@@ -4,25 +4,29 @@ import Photo from './Photo';
 
 const PhotoList = (props) => {
   const results = props.data;
-  let photos = results.map(result => 
-    <Photo
-    key={result.id}
-    url={`https://farm${result.farm}.staticflickr.com/${result.server}/${result.id}_${result.secret}.jpg`}
-    />
-  );
+  let photos;
+  if (results.length > 0) {
+    photos = results.map(result => 
+      <Photo
+      key={result.id}
+      url={`https://farm${result.farm}.staticflickr.com/${result.server}/${result.id}_${result.secret}.jpg`}
+      title={result.title}
+      />
+    );
+  } else {
+    photos =  (
+    <li className="not-found">
+     <h3>No Results Found</h3>
+      <p>You search did not return any results. Please try again.</p>
+   </li>);
+  }
+
   return(
     <div className="photo-container">
-      <h2>Results</h2>
+<h2>{ props.searchTitle }</h2>
         <ul>
           { photos }
         </ul>
-        
-        {/* <!-- Not Found --> */}
-          {/* <li className="not-found">
-            <h3>No Results Found</h3>
-            <p>You search did not return any results. Please try again.</p>
-          </li> */}
-
     </div>
     );
   }

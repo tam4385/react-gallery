@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 class Search extends Component {
@@ -28,8 +28,7 @@ class Search extends Component {
                 <path d="M0 0h24v24H0z" fill="none"/>
                 </svg>
                 </button>
-
-        <Redirect to={`/search/${this.state.searchText}`} render={() => this.onSearch}/>
+                <Redirect to={`/search/${this.state.searchText}`} render={() => this.onSearch}/>
       </form>
 
         );
