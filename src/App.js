@@ -4,7 +4,6 @@ import {
   Route,
   Switch 
  } from 'react-router-dom';
- import { Redirect } from 'react-router-dom';
  import axios from 'axios';
 
 //API KEY
@@ -14,7 +13,8 @@ import apiKey from './config';
 import Search from './Search';
 import Nav from './Nav';
 import PhotoList from './PhotoList';
-import NotFound from './NotFound';
+// import NotFound from './NotFound';
+import Header from './Header'
 
 class App extends Component {
 
@@ -27,7 +27,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.performSearch('sunset');
+    // this.performSearch('sunset');
   };
   
   performSearch = (query) => {
@@ -47,10 +47,11 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+
        <div className="container">
+         <Header /> 
          <Search onSearch={ this.performSearch } loading={ this.state.loading } />
          <Nav  onSearch={this.performSearch} />
-         
          {
            (this.state.loading)
            ? <p>Loading...</p>
@@ -61,10 +62,11 @@ class App extends Component {
                 />
            }
           <Switch>
-          <Route path="/sunsets" render={ () => this.performSearch('sunsets') } />
-          <Route path="/galaxies" render={ () => this.performSearch('galaxy') } />
-          <Route path="/dogs" render={ () => this.performSearch('dogs') } />s
-          <Route component={ NotFound } />
+          <Route path="/rainforest" render={ () => this.performSearch('rainforest') } />
+          <Route path="/night-sky" render={ () => this.performSearch('night sky') } />
+          <Route path="/waterfall" render={ () => this.performSearch('waterfall') } />
+          <Route exact path="/search" render={ () => this.performSearch('green') } />
+          {/* <Route component={ NotFound } /> */}
           </Switch>
         </div>
       </BrowserRouter>
