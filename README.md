@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+DESC: A basic image gallery using the Flickr API. Demonstrates skills with REACT JS
+
+EDITS in CSS + Structure:
+Color scheme changed to basic greens and dark greens.
+Header added to provide a title and tag lines for the APP
+
 ## Available Scripts
 
 In the project directory, you can run:
