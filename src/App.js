@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { 
   BrowserRouter,
@@ -7,14 +8,14 @@ import {
  import axios from 'axios';
 
 //API KEY
-import apiKey from './config';
+import apiKey from './components/config';
 
 //import components
-import Search from './Search';
-import Nav from './Nav';
-import PhotoList from './PhotoList';
+import Search from './components/Search';
+import Nav from './components/Nav';
+import PhotoList from './components/PhotoList';
 // import NotFound from './NotFound';
-import Header from './Header'
+import Header from './components/Header'
 
 class App extends Component {
 
@@ -26,10 +27,7 @@ class App extends Component {
      }
   };
 
-  componentDidMount() {
-    // this.performSearch('sunset');
-  };
-  
+  //function to get results using Axios
   performSearch = (query) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then(response => {
@@ -45,6 +43,7 @@ class App extends Component {
   }
 
   render() {
+    //the structure of the application, selecting components to render
     return (
       <BrowserRouter>
 
