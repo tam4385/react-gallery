@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Please note that those copying this repo will need to sign-up to Flickr and obtain an API KEY in order for the code to be fully functional and avoid the unveiling of sensitive information.
 
 DESC: A basic image gallery using the Flickr API. Demonstrates skills with REACT JS
 
